@@ -31,4 +31,14 @@ router.get("/api/transaction", (req, res) => {
     });
 });
 
+router.put("/api/transaction/:id", (req, res) => {
+  Transaction.updateOne({})
+    .then(dbTransaction => {
+      res.json(dbTransaction);
+    })
+    .catch(err => {
+      res.status(404).json(err);
+    });
+});
+
 module.exports = router;
